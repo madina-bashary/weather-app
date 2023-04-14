@@ -20,9 +20,6 @@ input {
   width: 60%;
   border: 1px solid blueviolet;
 }
-button {
-  border: 1px solid blueviolet;
-}
 h4,
 h5 {
   font-size: 18px !important;
