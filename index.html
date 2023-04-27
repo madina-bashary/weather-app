@@ -19,97 +19,65 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container-fluid p-5 rounded">
-      <div class="app">
-        <div class="row">
-          <div class="col-sm-12">
-            <h1>Weather App</h1>
-            <form id="search-form">
-              <input
-                type="search"
-                id="searchInput"
-                class="p-2 mt-3 mb-3 rounded"
-                placeholder="Search Your City Here..."
-              />
-              <div>
-                <button
-                  id="searchbtn"
-                  class="btn btn-primary p-2 mt-3 mb-3 rounded"
-                >
-                  Search
-                </button>
-                <button
-                  id="currentbtn"
-                  class="btn btn-success p-2 mt-3 mb-3 rounded"
-                >
-                  Current
-                </button>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
               </div>
-              <!-- <i class="fas fa-search search-icon"></i> -->
-            </form>
-
-            <div class="row mb-5">
-              <div class="col-6" style="padding-left: 25px">
-                <h2 id="currentCity">New York</h2>
-                <h4>
-                  <span id="currentDay">Sunday</span> -
-                  <span id="currentTime">7:00</span>
-                </h4>
-                <h4 id="desc">Sunny</h4>
-              </div>
-              <div class="col-6 temp">
-                <p>
-                  <i class="fas fa-sun sun-icon"></i>
-                  <span id="degree">11</span>
-                  <span id="temp-sys"
-                    ><span id="cel">°C</span> | <span id="fah">°F</span></span
-                  >
-                </p>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
               </div>
             </div>
-            <div class="row p-3 rounded upcoming-days">
-              <div class="col-2">
-                <h4>Mon</h4>
-                <p>🌤️</p>
-                <h5>11'C</h5>
+          </form>
+          <div class="overview">
+            <h1 id="city"></h1>
+            <ul>
+              <li>Last updated: <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <img src="" alt="Clear" id="icon" class="float-left" />
+                <div class="float-left">
+                  <strong id="temperature"></strong
+                  ><span class="units"> °C</span>
+                </div>
               </div>
-              <div class="col-2">
-                <h4>Tue</h4>
-                <p>🌧️</p>
-                <h5>9'C</h5>
-              </div>
-              <div class="col-2">
-                <h4>Wed</h4>
-                <p>☁️</p>
-                <h5>8'C</h5>
-              </div>
-              <div class="col-2">
-                <h4>Thu</h4>
-                <p>🌤️</p>
-                <h5>10'C</h5>
-              </div>
-              <div class="col-2">
-                <h4>Fri</h4>
-                <p>☀️</p>
-                <h5>12'C</h5>
-              </div>
-              <div class="col-2">
-                <h4>Sat</h4>
-                <p>🌤️</p>
-                <h5>11'C</h5>
-              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/h</li>
+              </ul>
             </div>
           </div>
+          <div class="weather-forecast" id="forecast"></div>
         </div>
-        <strong
-          >The GitHub Repository:
-          <a href="https://github.com/madina-bashary/weather-app"
-            >Weather App</a
-          ></strong
-        >
+        <small>
+          <a
+            href="https://github.com/wecodeschool/vanilla-weather-app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Madina Bashary
+        </small>
       </div>
     </div>
-
     <script src="src/index.js"></script>
   </body>
 </html>
