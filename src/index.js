@@ -74,6 +74,7 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
+  console.log(response)
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -96,7 +97,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getForecast(response.data.coord);
+  // getForecast(response.data.coord);
 }
 
 function search(city) {
