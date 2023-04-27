@@ -30,42 +30,42 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(response) {
-  let forecast = response.data.daily;
+// function displayForecast(response) {
+//   let forecast = response.data.daily;
 
-  let forecastElement = document.querySelector("#forecast");
+//   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
-      <div class="col-2">
-        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-        <img
-          src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png"
-          alt=""
-          width="42"
-        />
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max"> ${Math.round(
-            forecastDay.temp.max
-          )}° </span>
-          <span class="weather-forecast-temperature-min"> ${Math.round(
-            forecastDay.temp.min
-          )}° </span>
-        </div>
-      </div>
-  `;
-    }
-  });
+//   let forecastHTML = `<div class="row">`;
+//   forecast.forEach(function (forecastDay, index) {
+//     if (index < 6) {
+//       forecastHTML =
+//         forecastHTML +
+//         `
+//       <div class="col-2">
+//         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+//         <img
+//           src="http://openweathermap.org/img/wn/${
+//             forecastDay.weather[0].icon
+//           }@2x.png"
+//           alt=""
+//           width="42"
+//         />
+//         <div class="weather-forecast-temperatures">
+//           <span class="weather-forecast-temperature-max"> ${Math.round(
+//             forecastDay.temp.max
+//           )}° </span>
+//           <span class="weather-forecast-temperature-min"> ${Math.round(
+//             forecastDay.temp.min
+//           )}° </span>
+//         </div>
+//       </div>
+//   `;
+//     }
+//   });
 
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
+//   forecastHTML = forecastHTML + `</div>`;
+//   forecastElement.innerHTML = forecastHTML;
+// }
 
 function getForecast(coordinates) {
   let apiKey = "2ff29bed3181c3526c35cc5408037f85";
@@ -114,4 +114,30 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("New York");
+search("Kabul");
+
+// Changing Degree F -> C && C -> F
+let degree = document.querySelector("#temperature");
+
+let c = true;
+let f = false;
+let changeToCel = function () {
+  if (f) {
+    degree.innerHTML = Number(degree.innerHTML) - 32;
+    c = true;
+    f = false;
+  } else {
+  }
+};
+let changeToFah = function () {
+  if (c) {
+    degree.innerHTML = Number(degree.innerHTML) + 32;
+    f = true;
+    c = false;
+  } else {
+  }
+};
+let cel = document.querySelector("#cel");
+let fah = document.querySelector("#fah");
+cel.addEventListener("click", changeToCel);
+fah.addEventListener("click", changeToFah);

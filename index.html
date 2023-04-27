@@ -20,7 +20,8 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app-wrapper">
+      <h1 class="title">My Weather App</h1>
+      <div class="wrapper">
         <div class="weather-app">
           <form id="search-form" class="mb-3">
             <div class="row">
@@ -28,7 +29,7 @@
                 <input
                   type="search"
                   placeholder="Type a city.."
-                  class="form-control"
+                  class="form-control p-2"
                   id="city-input"
                   autocomplete="off"
                 />
@@ -37,7 +38,7 @@
                 <input
                   type="submit"
                   value="Search"
-                  class="btn btn-primary w-100"
+                  class="btn p-2 search-btn w-100"
                 />
               </div>
             </div>
@@ -53,9 +54,11 @@
             <div class="col-6">
               <div class="clearfix weather-temperature">
                 <img src="" alt="Clear" id="icon" class="float-left" />
-                <div class="float-left">
+                <div class="temp">
                   <strong id="temperature"></strong
-                  ><span class="units"> °C</span>
+                  ><span class="units">
+                    <span id="cel">°C</span> | <span id="fah">°F</span></span
+                  >
                 </div>
               </div>
             </div>
@@ -72,7 +75,7 @@
           <a
             href="https://github.com/wecodeschool/vanilla-weather-app"
             target="_blank"
-            >Open-source code</a
+            >Coded & Open-source code</a
           >
           by Madina Bashary
         </small>
